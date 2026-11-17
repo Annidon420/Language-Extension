@@ -1,0 +1,19 @@
+{
+  "name": "screenlingo-ai-extension",
+  "version": "1.0.0",
+  "description": "ScreenLingo AI Chrome & Edge Browser Extension",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/test-translation.js && node tests/test-dom-preservation.js"
+  },
+  "keywords": [
+    "translation",
+    "screen-translator",
+    "real-time",
+    "manifest-v3",
+    "ml-kit",
+    "ai"
+  ],
+  "author": "ScreenLingo AI Team",
+  "license": "MIT"
+}

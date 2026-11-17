@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScreenLingo AI - Settings & Privacy</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-layout">
+    <!-- Sidebar -->
+    <aside class="options-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">文A</div>
+        <div class="brand-info">
+          <h2>ScreenLingo AI</h2>
+          <span>Web &amp; Screen Translator</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-tab="general">General &amp; Languages</button>
+        <button class="nav-item" data-tab="privacy">Privacy &amp; Security</button>
+        <button class="nav-item" data-tab="history">Translation History</button>
+        <button class="nav-item" data-tab="about">About &amp; Architecture</button>
+      </nav>
+    </aside>
+
+    <!-- Content Area -->
+    <main class="options-content">
+      <!-- General Tab -->
+      <section class="tab-pane active" id="tab-general">
+        <h2>General &amp; Language Settings</h2>
+        <p class="tab-description">Configure your default source and target languages and webpage behavior.</p>
+
+        <div class="settings-card">
+          <h3>Languages</h3>
+          <div class="form-group">
+            <label for="opt-source-lang">Default Source Language</label>
+            <select id="opt-source-lang"></select>
+            <span class="field-hint">Auto-detect dynamically identifies webpage languages.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="opt-target-lang">Default Target Language</label>
+            <select id="opt-target-lang"></select>
+            <span class="field-hint">Webpages will be translated into this language.</span>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Webpage Interaction</h3>
+          <div class="setting-row">
+            <div>
+              <strong>Floating Control Pill</strong>
+              <p>Display a non-intrusive translate button at the bottom-right corner of webpages.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="opt-floating-pill">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div>
+              <strong>Selection Translation Tooltip</strong>
+              <p>Show instant translation tooltip when you highlight readable text on any webpage.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="opt-selection-tooltip">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div>
+              <strong>Auto-Translate on Page Load</strong>
+              <p>Automatically detect and translate foreign pages when loaded.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="opt-auto-translate">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Privacy Tab -->
+      <section class="tab-pane" id="tab-privacy">
+        <h2>Privacy &amp; Security</h2>
+        <p class="tab-description">ScreenLingo AI is engineered with a strict privacy-first architecture.</p>
+
+        <div class="settings-card">
+          <h3>History Privacy</h3>
+          <div class="setting-row">
+            <div>
+              <strong>Save Translation History</strong>
+              <p>Disabled by default. When enabled, translation records are saved strictly on your local browser profile.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="opt-save-history">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="form-group" style="margin-top: 16px;">
+            <button class="btn-danger" id="btn-clear-history">Clear All Saved History</button>
+            <span class="field-hint">Permanently deletes all cached local translation records.</span>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Domain Exclusions (Blacklist)</h3>
+          <p class="card-hint">ScreenLingo AI will never auto-translate or inject buttons on these domains (e.g., banking, password managers, private intranets).</p>
+          <div class="form-group">
+            <textarea id="opt-blacklisted-domains" placeholder="bank.com&#10;secure.paypal.com&#10;intranet.local" rows="4"></textarea>
+            <span class="field-hint">Enter one domain per line.</span>
+          </div>
+        </div>
+
+        <div class="privacy-callout">
+          <h4>🔒 Zero Cloud Surveillance Guarantee</h4>
+          <ul>
+            <li>No browsing history, URLs, or full-page text are collected or transmitted to tracking servers.</li>
+            <li>DOM translation runs client-side inside the content script environment.</li>
+            <li>Input fields, password inputs, credit card forms, and code blocks (&lt;pre&gt;, &lt;code&gt;) are strictly excluded from extraction.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- History Tab -->
+      <section class="tab-pane" id="tab-history">
+        <h2>Local Translation History</h2>
+        <p class="tab-description">Review previously translated snippets (only saved when history is enabled).</p>
+
+        <div class="history-controls">
+          <input type="text" id="history-search" placeholder="Search history..." />
+          <button class="btn-secondary" id="btn-export-history">Export JSON</button>
+        </div>
+
+        <div class="history-list" id="history-list-container">
+          <!-- Populated by options.js -->
+        </div>
+      </section>
+
+      <!-- About Tab -->
+      <section class="tab-pane" id="tab-about">
+        <h2>ScreenLingo AI Architecture</h2>
+        <p class="tab-description">Real-Time Screen &amp; Website Translator System Overview</p>
+
+        <div class="settings-card">
+          <h3>Modules</h3>
+          <div class="arch-item">
+            <strong>1. Android Screen Translator:</strong>
+            <p>Android 14+ MediaProjection API, Google ML Kit on-device Text Recognition (OCR), ML Kit Language Identification, on-device translation, and WindowManager overlay service.</p>
+          </div>
+          <div class="arch-item">
+            <strong>2. Browser Extension:</strong>
+            <p>Manifest V3 Service Worker, TreeWalker DOM layout-preserving translator, live MutationObserver, and selection tooltip.</p>
+          </div>
+          <div class="arch-item">
+            <strong>3. Cross-Platform Parity:</strong>
+            <p>Both applications share unified ISO-639-1 language models, strict privacy controls, and instant original/translated switching.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast">Settings Saved</div>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>

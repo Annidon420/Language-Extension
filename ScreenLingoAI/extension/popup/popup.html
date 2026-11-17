@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScreenLingo AI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="brand">
+        <div class="brand-icon">文A</div>
+        <div class="brand-text">
+          <h1>ScreenLingo AI</h1>
+          <span class="subtitle">Website Translator</span>
+        </div>
+      </div>
+      <div class="status-badge" id="status-badge">
+        <span class="dot"></span>
+        <span class="status-label">Ready</span>
+      </div>
+    </header>
+
+    <!-- Language Selector Bar -->
+    <section class="language-bar">
+      <div class="lang-select-group">
+        <label for="source-lang">FROM</label>
+        <select id="source-lang"></select>
+      </div>
+      <button class="swap-btn" id="swap-lang-btn" title="Swap Languages">⇄</button>
+      <div class="lang-select-group">
+        <label for="target-lang">TO</label>
+        <select id="target-lang"></select>
+      </div>
+    </section>
+
+    <!-- Main Page Translate Button -->
+    <section class="action-section">
+      <button class="primary-btn" id="btn-translate-page">
+        <span class="btn-icon">🌐</span>
+        <span class="btn-text" id="btn-translate-text">Translate Entire Page</span>
+      </button>
+
+      <button class="secondary-btn" id="btn-toggle-original" style="display: none;">
+        <span>↩ Switch to Original Webpage</span>
+      </button>
+    </section>
+
+    <!-- Quick Text Translator -->
+    <section class="quick-translate-section">
+      <div class="section-title">QUICK TRANSLATOR</div>
+      <div class="input-wrapper">
+        <textarea id="quick-input" placeholder="Type or paste text to translate..."></textarea>
+      </div>
+      <div class="quick-actions">
+        <button class="action-link-btn" id="btn-quick-translate">Translate</button>
+      </div>
+      <div class="result-box" id="quick-result-box" style="display: none;">
+        <div class="result-header">
+          <span class="result-lang" id="quick-result-lang">TRANSLATION</span>
+          <button class="copy-icon-btn" id="btn-quick-copy" title="Copy">📋</button>
+        </div>
+        <div class="result-text" id="quick-result-text"></div>
+      </div>
+    </section>
+
+    <!-- Toggles & Preferences -->
+    <section class="toggles-section">
+      <div class="toggle-row">
+        <span>Auto-translate on page load</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle-auto-translate">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="toggle-row">
+        <span>Selection translation tooltip</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle-selection-tooltip">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <a href="#" id="link-options">⚙ Options & Privacy</a>
+      <span class="privacy-note">🔒 Local &amp; Private</span>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
