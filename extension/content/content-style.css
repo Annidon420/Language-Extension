@@ -1,0 +1,404 @@
+/**
+ * ScreenLingo AI - Content Script Styles
+ * Scoped with sl- prefix to prevent collision with host website styles.
+ */
+
+/* Selection Translate Tooltip */
+.sl-selection-tooltip {
+  position: absolute;
+  z-index: 2147483647;
+  background: #0F172A;
+  color: #F8FAFC;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 340px;
+  min-width: 200px;
+  padding: 12px 14px;
+  pointer-events: auto;
+  user-select: text;
+  animation: sl-fade-in 0.15s ease-out;
+}
+
+@keyframes sl-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sl-tooltip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #1E293B;
+}
+
+.sl-tooltip-langs {
+  font-size: 11px;
+  font-weight: 700;
+  color: #818CF8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sl-tooltip-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sl-tooltip-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #94A3B8;
+  font-size: 13px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+
+.sl-tooltip-btn:hover {
+  color: #FFFFFF;
+  background: #1E293B;
+}
+
+.sl-tooltip-body {
+  color: #FFFFFF;
+  font-size: 13px;
+  word-break: break-word;
+}
+
+.sl-tooltip-original {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #1E293B;
+  color: #94A3B8;
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* Floating Action Pill on Webpage */
+.sl-floating-pill {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2147483646;
+  background: #0F172A;
+  color: #FFFFFF;
+  border: 1px solid #334155;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  user-select: none;
+}
+
+.sl-floating-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+  border-color: #6366F1;
+}
+
+.sl-pill-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #6366F1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 11px;
+  color: #FFFFFF;
+}
+
+.sl-pill-btn {
+  background: #1E293B;
+  color: #F8FAFC;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sl-pill-btn:hover {
+  background: #6366F1;
+  border-color: #6366F1;
+}
+
+/* Pill Divider */
+.sl-pill-divider {
+  width: 1px;
+  height: 18px;
+  background: #334155;
+  margin: 0 2px;
+}
+
+/* Pill Voice Dub Toggle Button */
+.sl-pill-dub-btn {
+  background: #1E293B;
+  color: #F8FAFC;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.sl-pill-dub-btn:hover {
+  background: #334155;
+  border-color: #6366F1;
+}
+
+.sl-pill-dub-btn.active {
+  background: #064E3B;
+  border-color: #10B981;
+  color: #34D399;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.sl-pill-dub-gear {
+  font-size: 10px;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+.sl-pill-dub-gear:hover {
+  color: #FFFFFF;
+}
+
+/* Mini Voice Dub Quick Pop-up Menu near Floating Pill */
+.sl-pill-dub-popup {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  right: 0;
+  width: 230px;
+  background: #0F172A;
+  border: 1px solid #4F46E5;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: sl-fade-in 0.15s ease-out;
+  cursor: default;
+  z-index: 2147483647;
+}
+
+.sl-dub-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 12px;
+  color: #F8FAFC;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #1E293B;
+}
+
+.sl-dub-popup-status {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: #1E3A5F;
+  color: #60A5FA;
+  font-weight: 700;
+}
+
+.sl-dub-popup-status.active {
+  background: #064E3B;
+  color: #34D399;
+}
+
+.sl-dub-popup-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sl-dub-popup-row label {
+  font-size: 10px;
+  color: #94A3B8;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.sl-dub-popup-row select {
+  background: #1E293B;
+  color: #FFFFFF;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-size: 11px;
+}
+
+.sl-pill-close {
+  color: #94A3B8;
+  font-size: 14px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.sl-pill-close:hover {
+  color: #FFFFFF;
+}
+
+/* Spinner */
+.sl-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #818CF8;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: sl-spin 0.6s linear infinite;
+  display: inline-block;
+}
+
+@keyframes sl-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================================= */
+/* Live Video Voice Translator & Audio Ducking Styles        */
+/* ========================================================= */
+
+.sl-video-dub-container {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2147483647 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  user-select: none;
+  pointer-events: auto !important;
+}
+
+.sl-video-dub-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid #4F46E5;
+  color: #FFFFFF;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.sl-video-dub-btn:hover {
+  background: #4F46E5;
+  transform: translateY(-1px);
+}
+
+.sl-video-dub-btn.active {
+  background: linear-gradient(135deg, #4F46E5, #6366F1);
+  border-color: #818CF8;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.6);
+}
+
+.sl-video-dub-btn.speaking {
+  animation: sl-mic-pulse 1s infinite alternate;
+  border-color: #34D399;
+}
+
+@keyframes sl-mic-pulse {
+  from { box-shadow: 0 0 6px rgba(52, 211, 153, 0.6); }
+  to { box-shadow: 0 0 20px rgba(52, 211, 153, 0.9); }
+}
+
+.sl-dub-mic-icon {
+  font-size: 14px;
+}
+
+.sl-dub-duck-badge {
+  font-size: 10px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+  border: 1px solid #10B981;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-weight: 700;
+  display: none;
+}
+
+.sl-dub-duck-badge.visible {
+  display: inline-block;
+}
+
+/* Floating Subtitle / Voice Caption Overlay on Video */
+.sl-video-dub-caption-bar {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 85%;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid #334155;
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 2147483639;
+  display: none;
+  animation: sl-fade-in 0.15s ease-out;
+  pointer-events: none;
+}
+
+.sl-video-dub-caption-bar.visible {
+  display: block;
+}
+
+.sl-caption-badge {
+  font-size: 10px;
+  font-weight: 800;
+  color: #818CF8;
+  margin-right: 6px;
+  text-transform: uppercase;
+}
+
+.sl-caption-text {
+  font-weight: 600;
+  color: #F8FAFC;
+}
+
+/* Hide raw original YouTube subtitles when ScreenLingo AI Dubbing is active */
+.sl-hide-native-captions .ytp-caption-segment,
+.sl-hide-native-captions .ytp-caption-window-bottom,
+.sl-hide-native-captions .caption-window {
+  opacity: 0 !important;
+}
+

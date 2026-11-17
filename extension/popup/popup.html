@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScreenLingo AI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="brand">
+        <div class="brand-icon">文A</div>
+        <div class="brand-text">
+          <h1>ScreenLingo AI</h1>
+          <span class="subtitle">Website Translator</span>
+        </div>
+      </div>
+      <div class="status-badge" id="status-badge">
+        <span class="dot"></span>
+        <span class="status-label">Ready</span>
+      </div>
+    </header>
+
+    <!-- Language Selector Bar -->
+    <section class="language-bar">
+      <div class="lang-select-group">
+        <label for="source-lang">FROM</label>
+        <select id="source-lang"></select>
+      </div>
+      <button class="swap-btn" id="swap-lang-btn" title="Swap Languages">⇄</button>
+      <div class="lang-select-group">
+        <label for="target-lang">TO</label>
+        <select id="target-lang"></select>
+      </div>
+    </section>
+
+    <!-- Main Page Translate Button -->
+    <section class="action-section">
+      <button class="primary-btn" id="btn-translate-page">
+        <span class="btn-icon">🌐</span>
+        <span class="btn-text" id="btn-translate-text">Translate Entire Page</span>
+      </button>
+
+      <button class="secondary-btn" id="btn-toggle-original" style="display: none;">
+        <span>↩ Switch to Original Webpage</span>
+      </button>
+    </section>
+
+    <!-- Live Video Voice Dubbing Section -->
+    <section class="video-dub-section">
+      <div class="video-dub-header">
+        <div class="section-title">🎙️ LIVE VIDEO VOICE DUBBING</div>
+        <span class="video-status-chip" id="video-status-chip">Checking...</span>
+      </div>
+      <div class="toggle-row">
+        <div>
+          <span style="font-weight: 600;">Enable Live Voice Dub</span>
+          <p style="font-size: 11px; color: #94A3B8; margin-top: 2px;">Ducks video volume to 15% &amp; speaks translation aloud</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-voice-dubbing">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="dub-settings-row" id="dub-settings-row" style="margin-top: 10px; display: none;">
+        <div class="dub-control-group">
+          <label for="dub-source-lang">Video Spoken Language (Original):</label>
+          <select id="dub-source-lang">
+            <option value="auto">🌐 Auto Detect (Any Language)</option>
+            <option value="ru">🇷🇺 Russian (Русский)</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="es">🇪🇸 Spanish (Español)</option>
+            <option value="zh">🇨🇳 Chinese (中文)</option>
+            <option value="hi">🇮🇳 Hindi (हिन्दी)</option>
+          </select>
+        </div>
+        <div class="dub-control-group">
+          <label for="dub-target-lang">Dubbed Voice Language (Translate to):</label>
+          <select id="dub-target-lang">
+            <option value="hi">🇮🇳 Hindi (हिन्दी)</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="ru">🇷🇺 Russian (Русский)</option>
+            <option value="zh">🇨🇳 Chinese (简体中文)</option>
+            <option value="es">🇪🇸 Spanish (Español)</option>
+          </select>
+        </div>
+        <div class="dub-control-group">
+          <label for="dub-voice-gender">Voice Gender & Tone:</label>
+          <select id="dub-voice-gender">
+            <option value="auto">⚡ Auto (Match Video Speaker)</option>
+            <option value="female">👩 Natural Female Voice</option>
+            <option value="male">👨 Natural Male Voice</option>
+          </select>
+        </div>
+        <div class="dub-control-group">
+          <label for="dub-voice-expression">Human Expression & Emotion:</label>
+          <select id="dub-voice-expression">
+            <option value="expressive">🎭 Expressive (Dynamic Pitch & Human Emotion)</option>
+            <option value="conversational">🎙️ Warm & Conversational</option>
+            <option value="lively">⚡ Brisk & Vivid</option>
+          </select>
+        </div>
+        <div class="ducking-hint">
+          🔉 <strong>Smart Audio Ducking</strong> lowers original video audio to 15% automatically whenever the translated voice is speaking. Works on YouTube, adult sites, and all HTML5 video players.
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Text Translator -->
+    <section class="quick-translate-section">
+      <div class="section-title">QUICK TRANSLATOR</div>
+      <div class="input-wrapper">
+        <textarea id="quick-input" placeholder="Type or paste text to translate..."></textarea>
+      </div>
+      <div class="quick-actions">
+        <button class="action-link-btn" id="btn-quick-translate">Translate</button>
+      </div>
+      <div class="result-box" id="quick-result-box" style="display: none;">
+        <div class="result-header">
+          <span class="result-lang" id="quick-result-lang">TRANSLATION</span>
+          <button class="copy-icon-btn" id="btn-quick-copy" title="Copy">📋</button>
+        </div>
+        <div class="result-text" id="quick-result-text"></div>
+      </div>
+    </section>
+
+    <!-- Toggles & Preferences -->
+    <section class="toggles-section">
+      <div class="toggle-row">
+        <span>Auto-translate on page load</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle-auto-translate">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="toggle-row">
+        <span>Selection translation tooltip</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle-selection-tooltip">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <a href="#" id="link-options">⚙ Options & Privacy</a>
+      <span class="privacy-note">🔒 Local &amp; Private</span>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

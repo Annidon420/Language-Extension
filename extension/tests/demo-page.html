@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScreenLingo AI - Interactive Test & Demo Webpage</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: #334155;
+      background: #F8FAFC;
+      margin: 0;
+      padding: 40px;
+    }
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      padding: 36px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    header {
+      border-bottom: 2px solid #E2E8F0;
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      color: #0F172A;
+      font-size: 28px;
+      margin: 0 0 8px 0;
+    }
+    .badge {
+      display: inline-block;
+      background: #EEF2FF;
+      color: #4F46E5;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    section {
+      margin-bottom: 32px;
+    }
+    h2 {
+      color: #1E293B;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    pre {
+      background: #0F172A;
+      color: #38BDF8;
+      padding: 16px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13px;
+    }
+    .interactive-card {
+      background: #F1F5F9;
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 14px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+    button.demo-btn {
+      background: #4F46E5;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button.demo-btn:hover {
+      background: #4338CA;
+    }
+    .comment-item {
+      padding: 12px;
+      border-left: 3px solid #6366F1;
+      background: #FAFAFA;
+      margin-bottom: 10px;
+      border-radius: 0 8px 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">ScreenLingo AI Verification Suite</span>
+      <h1>Interactive Multilingual Webpage</h1>
+      <p>Test real-time translation into <strong>English, Hindi (हिन्दी), Russian (Русский), Chinese (简体中文), and Spanish (Español)</strong>.</p>
+    </header>
+
+    <!-- Section 1: Spanish Article -->
+    <section>
+      <h2>🇪🇸 Artículo en Español (Spanish Article)</h2>
+      <p>
+        La inteligencia artificial está transformando radicalmente la forma en que los seres humanos se comunican a través de las fronteras globales. Con la traducción en tiempo real directamente en la pantalla, las barreras del idioma están desapareciendo para millones de usuarios.
+      </p>
+      <p>
+        Los usuarios ya no necesitan copiar y pegar textos manualmente entre diferentes aplicaciones. Todo el proceso ocurre de manera instantánea y transparente.
+      </p>
+    </section>
+
+    <!-- Section 2: French Comments -->
+    <section>
+      <h2>🇫🇷 Commentaires Français (French Comments)</h2>
+      <div class="comment-item">
+        <strong>Jean-Luc :</strong> Cette extension est absolument incroyable ! La mise en page du site reste exactement la même après la traduction.
+      </div>
+      <div class="comment-item">
+        <strong>Camille :</strong> J'adore le fait que mes données restent complètement privées sur mon appareil sans être envoyées vers des serveurs tiers.
+      </div>
+    </section>
+
+    <!-- Section 3: Hindi Technology News -->
+    <section>
+      <h2>🇮🇳 हिंदी समाचार (Hindi News)</h2>
+      <p>
+        स्क्रीन ट्रांसलेशन तकनीक अब मोबाइल और वेब दोनों प्लेटफॉर्म्स पर बेहद आसान हो गई है। जब आप स्क्रीन पर किसी भी भाषा का संदेश देखते हैं, तो केवल एक टैप से वह आपकी चुनी हुई भाषा में बदल जाता है।
+      </p>
+    </section>
+
+    <!-- Section 4: Japanese Notes -->
+    <section>
+      <h2>🇯🇵 日本語のレビュー (Japanese Review)</h2>
+      <p>
+        このツールは、レイアウトを崩さずにウェブページ全体を瞬時に翻訳します。特に海外の技術ドキュメントやソーシャルメディアを読むときに非常に役立ちます。
+      </p>
+    </section>
+
+    <!-- Section 5: Exclusion Filter Verification (Must NOT be translated) -->
+    <section>
+      <h2>🛡️ Exclusion Rules Test (Protected Content)</h2>
+      <p>The code block below must remain verbatim and untouched by the translation engine:</p>
+      <pre><code>// This code block MUST NOT be translated!
+function calculateScreenMetrics(width, height) {
+    const aspectRatio = width / height;
+    return { aspectRatio, isLandscape: width > height };
+}</code></pre>
+
+      <div class="interactive-card">
+        <strong>Protected Form Inputs (Must NOT be translated):</strong>
+        <input type="text" value="User input test: hello@domain.com" />
+        <textarea rows="2">Editable textarea text should not be overwritten.</textarea>
+      </div>
+    </section>
+
+    <!-- Section 6: Dynamic Content Mutation Test -->
+    <section>
+      <h2>⚡ Dynamic Content Mutation Observer Test</h2>
+      <p>Click the button below to inject newly loaded multilingual comments into the DOM:</p>
+      <button class="demo-btn" id="btn-add-dynamic">Add Dynamic Multilingual Comments</button>
+      <div id="dynamic-container" style="margin-top: 16px;"></div>
+    </section>
+  </div>
+
+  <script>
+    document.getElementById('btn-add-dynamic').addEventListener('click', () => {
+      const container = document.getElementById('dynamic-container');
+      const div = document.createElement('div');
+      div.className = 'comment-item';
+      div.innerHTML = '<strong>' + (new Date().toLocaleTimeString()) + ' - Nouvel élément dynamique :</strong> Les nouvelles informations chargées dynamiquement sont détectées et traduites automatiquement grâce au MutationObserver !';
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>

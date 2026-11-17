@@ -1,0 +1,73 @@
+{
+  "manifest_version": 3,
+  "name": "ScreenLingo AI - Real-Time Website & Video Voice Translator",
+  "version": "1.2.0",
+  "description": "Ultra-fast AI translation for webpages and live video voice dubbing with audio ducking across English, Hindi, Russian, Chinese, and Spanish.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "contextMenus",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://translate.googleapis.com/*",
+    "https://api.mymemory.translated.net/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "content/content-script.js",
+        "content/video-voice-dubber.js"
+      ],
+      "css": ["content/content-style.css"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "ScreenLingo AI (Webpage & Video Voice Translator)",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "commands": {
+    "toggle-translation": {
+      "suggested_key": {
+        "default": "Alt+T",
+        "mac": "Alt+T"
+      },
+      "description": "Translate or switch to original webpage"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "shared/languages.js",
+        "shared/translation-engine.js",
+        "shared/storage.js",
+        "icons/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
